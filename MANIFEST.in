@@ -1,0 +1,1 @@
+recursive-include st_ner_annotate/frontend/public *

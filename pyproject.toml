@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "st_ner_annotate"
+version = "0.1.0"
+description = ""
+authors = ["Chandan Prasad M <prasad.chandan@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+streamlit = "^0.76.0"
+spacy = "^3.0.1"
+
+[tool.poetry.dev-dependencies]
+watchdog = "^2.0.0"
+autopep8 = "^1.5.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
