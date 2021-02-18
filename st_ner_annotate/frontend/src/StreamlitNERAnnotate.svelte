@@ -103,13 +103,6 @@
 </main>
 
 <style>
-  section {
-    padding: 1em;
-  }
-  header {
-    padding: 0.1em 1em;
-    margin-bottom: 1em;
-  }
   main {
     padding: 1em;
     line-height: 2;
