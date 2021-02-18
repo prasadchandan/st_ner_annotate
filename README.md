@@ -71,6 +71,9 @@ $ streamlit run my_component/__init__.py  # run the example
 - Modify the frontend code at `my_component/frontend/src/MyComponent.svelte`.
 - Modify the Python code at `my_component/__init__.py`.
 
+## Build Wheel
+- `python setup.py sdist bdist_wheel`
+
 ## Examples
 
 - COMING SOON
