@@ -39,12 +39,26 @@ def st_ner_annotate(label, text, ents, key=None):
 
     return component_value
 
+
 # app: `$ streamlit run my_component/__init__.py`
 if not _RELEASE:
     import streamlit as st
 
     st.title("Named entity recognition demo")
-    text = "Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002 by Me."
+    text = """Manhattan traces its origins to a trading post founded by colonists 
+    from the Dutch Republic in 1624 on Lower Manhattan; the post was named New 
+    Amsterdam in 1626. Manhattan is historically documented to have been purchased 
+    by Dutch colonists from Native Americans in 1626 for 60 guilders, which equals 
+    roughly $1059 in current terms. The territory and its surroundings came under 
+    English control in 1664 and were renamed New York after King Charles II of 
+    England granted the lands to his brother, the Duke of York. New York, based 
+    in present-day Manhattan, served as the capital of the United States from 1785 
+    until 1790. The Statue of Liberty greeted millions of immigrants as they came 
+    to America by ship in the late 19th century and is a world symbol of the United 
+    States and its ideals of liberty and peace. Manhattan became a borough during 
+    the consolidation of New York City in 1898. 
+    """
+
     nlp = spacy.load("en_core_web_sm")
     entity_labels = nlp.get_pipe('ner').labels
 

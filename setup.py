@@ -2,10 +2,10 @@ import setuptools
 
 setuptools.setup(
     name="st_ner_annotate",
-    version="0.0.1",
+    version="0.1.0",
     author="Chandan Prasad M",
     author_email="prasad.chandan@gmail.com",
-    description="Streamlit Named Entity Recognition (NER) annotation tool",
+    description="Streamlit Named Entity Recognition (NER) annotation custom component",
     long_description="Component to assist with annotating unstructured text for NER, inspired by prodi.gy",
     long_description_content_type="text/plain",
     url="",
