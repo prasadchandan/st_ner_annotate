@@ -11,7 +11,7 @@ I am also using this component as a testbed to get familiar with streamlit custo
 
   - Backend
     + Install [Poetry](https://python-poetry.org/)
-    + Run `poetry intall`
+    + Run `poetry install`
     + Drop into a virtualenv shell `poetry shell`
     + Install a spacy model `python -m spacy download en_core_web_sm`
     + Edit `st_ner_annotate/__init__.py` change `_RELEASE` to `False` 
