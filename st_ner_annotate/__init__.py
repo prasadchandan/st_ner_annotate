@@ -59,12 +59,15 @@ if not _RELEASE:
     the consolidation of New York City in 1898. 
     """
 
-    nlp = spacy.load("en_core_web_sm")
-    entity_labels = nlp.get_pipe('ner').labels
+#     nlp = spacy.load("en_core_web_sm")
+#     entity_labels = nlp.get_pipe('ner').labels
 
-    doc = nlp(text)
-    ents = doc.to_json()['ents']
+#     doc = nlp(text)
+#     ents = doc.to_json()['ents']
 
+    entity_labels = ['WP', 'PP']
+    ents = [{'start': 0, 'end': 9, 'label': 'WP'}]
+    
     current_entity_type = st.selectbox("Mark for Entity Type", entity_labels)
     entities = st_ner_annotate(current_entity_type, text, ents, key=42)
     st.json(entities)
