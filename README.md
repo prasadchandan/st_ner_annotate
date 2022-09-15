@@ -19,7 +19,7 @@ I am also using this component as a testbed to get familiar with streamlit custo
   - Frontend
     + `cd st_codemirror_diff/frontend`
     + `npm install`
-    + `npm start`
+    + `npm run dev`
   - Now the frontend and backend should be up, the page can be accessed at `http://localhost:8501`
 
 ### Development - Release
