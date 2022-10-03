@@ -47,7 +47,6 @@ def st_ner_annotate(label, text, ents, key=None):
 
     return component_value
 
-
 def get_label_entities(doc, wordlist, label):
     result = []
     for word in wordlist:
@@ -71,11 +70,10 @@ def get_PP(doc, real_doc):
             result.append({'start': start, 'end': start + len(r), 'label': 'PP', 'word': r})
     return result
 
-
 # app: `$ streamlit run my_component/__init__.py`
 if not _RELEASE:
     st.markdown("# Demonstrating use of Next button with Session State")
-    st.sidebar.markdown("Interactive Summarization")
+    st.sidebar.markdown("Auto Summarization")
     # A variable to keep track of which product we are currently displaying
     # session_state = st.session_state.get(page_number=0)
 
@@ -119,7 +117,8 @@ if not _RELEASE:
     entity_labels = ['WP', 'PP']
     ents = WP_ents if len(WP_ents) <= 10 else WP_ents[:10]
     # current_entity_type = st.selectbox("Mark for Entity Type", entity_labels)
-    WP_entities = st_ner_annotate('WP', text, ents)
-    PP_entities = st_ner_annotate('PP', text, PP_ents)
-    st.json(WP_entities)
-    st.json(PP_entities)
+    # WP_entities = st_ner_annotate('WP', text, ents)
+    # PP_entities = st_ner_annotate('PP', text, [])
+    st.markdown(text)
+    st.json(WP_ents)
+    st.json(PP_ents)

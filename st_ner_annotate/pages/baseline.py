@@ -48,34 +48,10 @@ def st_ner_annotate(label, text, ents, key=None):
     return component_value
 
 
-def get_label_entities(doc, wordlist, label):
-    result = []
-    for word in wordlist:
-        if 'wizard' in word.lower() or 'apprentice' in word.lower() or word not in doc:
-            continue
-        result.append({'start': doc.find(word), 'end': doc.find(word) + len(word), 'label': label, 'word': word})
-    result = sorted(result, key=lambda i: i['start'])
-    return result
-
-
-def get_PP(doc, real_doc):
-    sent_list = doc.split("<PP>")
-    result = []
-    for i, sent in enumerate(sent_list):
-        sent = sent.split("</PP>")
-        if len(sent) > 1:
-            r = sent[0].replace("<WP>", "").replace("</WP>", "")
-            start = real_doc.find(r)
-            if start == -1:
-                continue
-            result.append({'start': start, 'end': start + len(r), 'label': 'PP', 'word': r})
-    return result
-
-
 # app: `$ streamlit run my_component/__init__.py`
 if not _RELEASE:
     st.markdown("# Demonstrating use of Next button with Session State")
-    st.sidebar.markdown("Interactive Summarization")
+    st.sidebar.markdown("Base Dialog Summarization")
     # A variable to keep track of which product we are currently displaying
     # session_state = st.session_state.get(page_number=0)
 
@@ -106,20 +82,7 @@ if not _RELEASE:
     # Get start and end indices of the next page of the dataframe
     data_id = st.session_state["page_number"]
 
-    # Index into the sub dataframe
-    # sub_df = data[data_id]
-
-    # data_id = st.text_input('Data ID', 0)
-    # st.write('Document ID is', data_id)
-    # data_id = int(data_id)
     st.title("CML tagging demo")
-    text = data[data_id]['dialog'].replace('\n', ' ').lower()
-    PP_ents = get_PP(data[data_id]['only_PP'], text)
-    WP_ents = get_label_entities(text, data[data_id]['keywords']['positive'], 'WP')
-    entity_labels = ['WP', 'PP']
-    ents = WP_ents if len(WP_ents) <= 10 else WP_ents[:10]
-    # current_entity_type = st.selectbox("Mark for Entity Type", entity_labels)
-    WP_entities = st_ner_annotate('WP', text, ents)
-    PP_entities = st_ner_annotate('PP', text, PP_ents)
-    st.json(WP_entities)
-    st.json(PP_entities)
+    text = data[data_id]['dialog']
+    # PP_ents = [{} for word in data[data_id]['sent_index']]
+    st.markdown(text)
