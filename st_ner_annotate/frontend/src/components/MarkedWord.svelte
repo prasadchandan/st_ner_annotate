@@ -9,6 +9,8 @@
   const dispatch = createEventDispatcher();
 
   const colors = {
+    WP: "#7aecec",
+    PP: "#bfeeb7",
     ORG: "#7aecec",
     PRODUCT: "#bfeeb7",
     GPE: "#feca74",
